@@ -88,7 +88,7 @@ namespace CookingPrototype.Controllers {
 			CustomersController.Instance.Init();
 			HideWindows();
 
-			foreach ( var place in FindObjectsOfType<AbstractFoodPlace>() ) {
+			foreach ( var place in FindObjectsByType<AbstractFoodPlace>(FindObjectsSortMode.None) ) {
 				place.FreePlace();
 			}
 		}

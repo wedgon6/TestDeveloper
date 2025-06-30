@@ -15,7 +15,7 @@ namespace CookingPrototype.Controllers {
 		public static OrdersController Instance {
 			get {
 				if ( !_instance ) {
-					_instance = FindObjectOfType<OrdersController>();
+					_instance = FindAnyObjectByType<OrdersController>();
 				}
 				if ( _instance && !_instance._isInit ) {
 					_instance.Init();
