@@ -11,19 +11,24 @@ using CookingPrototype.Kitchen;
 namespace CookingPrototype.Controllers {
 	public class CustomersController : MonoBehaviour {
 
+		private const string CUSTOMER_PREFABS_PATH = "Prefabs/Customer";
 		public static CustomersController Instance { get; private set; }
 
-		public int                 CustomersTargetNumber = 15;
-		public float               CustomerWaitTime      = 18f;
-		public float               CustomerSpawnTime     = 3f;
-		public List<CustomerPlace> CustomerPlaces        = null;
+		[SerializeField] private int _customersTargetNumber = 15;
+		[SerializeField] private float _customerWaitTime = 18f;
+		[SerializeField] private float _customerSpawnTime = 3f;
+		[SerializeField] private List<CustomerPlace> _customerPlaces = new();
+
+		public int CustomersTargetNumber => _customersTargetNumber;
+		public float CustomerWaitTime => _customerWaitTime;
+		public float CustomerSpawnTime => _customerSpawnTime;
+		public List<CustomerPlace> CustomerPlaces => _customerPlaces;
 
 		[HideInInspector]
 		public int TotalCustomersGenerated { get; private set; } = 0;
 
 		public event Action TotalCustomersGeneratedChanged;
 
-		const string CUSTOMER_PREFABS_PATH = "Prefabs/Customer";
 
 		float _timer = 0f;
 		Stack<List<Order>> _orderSets;
@@ -38,24 +43,24 @@ namespace CookingPrototype.Controllers {
 			}
 		}
 
-		void Awake() {
+		private void Awake() {
 			if ( Instance != null ) {
 				Debug.LogError("Another instance of CustomersController already exists!");
 			}
 			Instance = this;
 		}
 
-		void OnDestroy() {
+		private void OnDestroy() {
 			if ( Instance == this ) {
 				Instance = null;
 			}
 		}
 
-		void Start() {
+		private void Start() {
 			Init();
 		}
 
-		void Update() {
+		private void Update() {
 			if ( !HasFreePlaces ) {
 				return;
 			}
@@ -139,7 +144,18 @@ namespace CookingPrototype.Controllers {
 		/// <param name="order">Заказ, который пытаемся отдать</param>
 		/// <returns>Флаг - результат, удалось ли успешно отдать заказ</returns>
 		public bool ServeOrder(Order order) {
-			throw  new NotImplementedException("ServeOrder: this feature is not implemented.");
+			float maxTime = float.MaxValue;
+			Customer customer = null;
+			foreach ( var place in _customerPlaces) {
+				if(place.CurCustomer != null ) {
+					if ( place.CurCustomer.WaitTime < maxTime ) {
+						customer = place.CurCustomer;
+						maxTime = customer.WaitTime;
+					}
+				}
+			}
+
+			return customer.ServeOrder(order);
 		}
 	}
 }
