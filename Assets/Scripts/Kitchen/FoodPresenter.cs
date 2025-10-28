@@ -9,17 +9,12 @@ namespace CookingPrototype.Kitchen
 		[Serializable]
 		public class FoodVisualizersSet
 		{
-			public GameObject Empty = null;
 			public FoodVisualizer RawVisualizer = null;
 			public FoodVisualizer CookedVisualizer = null;
 			public FoodVisualizer OvercookedVisualizer = null;
 
 			public void Hide()
 			{
-				if ( Empty != null )
-				{
-					Empty.SetActive(false);
-				}
 				RawVisualizer?.SetEnabled(false);
 				CookedVisualizer?.SetEnabled(false);
 				OvercookedVisualizer?.SetEnabled(false);
@@ -28,10 +23,6 @@ namespace CookingPrototype.Kitchen
 			public void ShowEmpty()
 			{
 				Hide();
-				if ( Empty != null )
-				{
-					Empty.SetActive(true);
-				}
 			}
 
 			public void ShowStatus(Food.FoodStatus status)
