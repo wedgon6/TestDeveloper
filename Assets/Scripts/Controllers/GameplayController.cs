@@ -14,7 +14,6 @@ namespace CookingPrototype.Controllers
 		public WinWindow WinWindow = null;
 		public LoseWindow LoseWindow = null;
 
-
 		int _ordersTarget = 0;
 
 		public int OrdersTarget

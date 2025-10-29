@@ -21,32 +21,19 @@ namespace CookingPrototype.Kitchen
 		void Start()
 		{
 			_possibleOrders.AddRange(OrdersController.Instance.Orders);
-			Debug.Log(_possibleOrders.Count);
 		}
 
 		bool CanAddFood(Food food)
 		{
 			if ( CurOrder.Contains(food.Name) )
-			{
-				Debug.Log(food.Name);
 				return false;
-			}
 
 			foreach ( var order in _possibleOrders )
 			{
-				Debug.Log("Foreach 1");
-				Debug.Log(order.Name);
-
 				foreach ( var orderFood in order.Foods.Where(x => x.Name == food.Name) )
 				{
-					Debug.Log(string.IsNullOrEmpty(orderFood.Needs));
-					Debug.Log(CurOrder.Contains(orderFood.Needs));
-
 					if ( string.IsNullOrEmpty(orderFood.Needs) || CurOrder.Contains(orderFood.Needs) )
-					{
-						Debug.Log(food.Name);
 						return true;
-					}
 				}
 			}
 
@@ -69,10 +56,7 @@ namespace CookingPrototype.Kitchen
 		public override bool TryPlaceFood(Food food)
 		{
 			if ( !CanAddFood(food) )
-			{
-				Debug.Log("CAn't add food");
 				return false;
-			}
 
 			foreach ( var place in Places )
 			{

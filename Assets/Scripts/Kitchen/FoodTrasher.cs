@@ -48,8 +48,14 @@ namespace CookingPrototype.Kitchen
 
 		private void OnDoubleClick()
 		{
-			_place.FreePlace();
-			MessageBroker.Default.Publish(new M_ThrowTrash());
+			if(_place.CurFood != null )
+			{
+				if ( _place.CurFood.CurStatus == Food.FoodStatus.Overcooked )
+				{
+					_place.FreePlace();
+					MessageBroker.Default.Publish(new M_ThrowTrash());
+				}
+			}
 		}
 
 		private IEnumerator WaitForDoubleClick()

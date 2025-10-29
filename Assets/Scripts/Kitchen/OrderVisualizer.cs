@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 using UnityEngine;
 
 namespace CookingPrototype.Kitchen
@@ -21,9 +20,9 @@ namespace CookingPrototype.Kitchen
 		public void Init(List<string> foods)
 		{
 			Clear();
+
 			foreach ( var vis in Visualizers )
 			{
-				Debug.Log(vis.Name);
 				if ( foods.Contains(vis.Name) )
 				{
 					vis.SetEnabled(true);

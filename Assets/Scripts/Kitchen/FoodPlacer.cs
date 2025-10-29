@@ -12,7 +12,6 @@ namespace CookingPrototype.Kitchen
 		[UsedImplicitly]
 		public void TryPlaceFood()
 		{
-			Debug.Log("FOOD NAME  " + FoodName);
 			foreach ( var place in Places )
 			{
 				if ( place.TryPlaceFood(new Food(FoodName)) )
