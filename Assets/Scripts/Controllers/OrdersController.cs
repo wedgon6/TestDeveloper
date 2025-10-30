@@ -16,15 +16,14 @@ namespace CookingPrototype.Controllers
 			get
 			{
 				if ( !_instance )
-				{
 					_instance = FindAnyObjectByType<OrdersController>();
-				}
+
 				if ( _instance && !_instance._isInit )
-				{
 					_instance.Init();
-				}
+
 				return _instance;
 			}
+
 			set { _instance = value; }
 		}
 
@@ -32,7 +31,7 @@ namespace CookingPrototype.Controllers
 
 		bool _isInit = false;
 
-		void Awake()
+		private void Awake()
 		{
 			if ( (_instance != null) && (_instance != this) )
 				Debug.LogError("Another instance of OrdersController already exists!");
@@ -40,42 +39,42 @@ namespace CookingPrototype.Controllers
 			Instance = this;
 		}
 
-		void OnDestroy()
+		private void OnDestroy()
 		{
 			if ( Instance == this )
-			{
 				Instance = null;
-			}
 		}
 
-		void Start()
+		private void Start()
 		{
 			Init();
 		}
 
-		void Init()
+		private void Init()
 		{
 			if ( _isInit )
-			{
 				return;
-			}
+
 			var ordersConfig = Resources.Load<TextAsset>("Configs/Orders");
 			var ordersXml = new XmlDocument();
+
 			using ( var reader = new StringReader(ordersConfig.ToString()) )
 			{
 				ordersXml.Load(reader);
 			}
 
 			var rootElem = ordersXml.DocumentElement;
+
 			foreach ( XmlNode node in rootElem.SelectNodes("order") )
 			{
 				var order = ParseOrder(node);
 				Orders.Add(order);
 			}
+
 			_isInit = true;
 		}
 
-		Order ParseOrder(XmlNode node)
+		private Order ParseOrder(XmlNode node)
 		{
 			var foods = new List<Order.OrderFood>();
 			foreach ( XmlNode foodNode in node.SelectNodes("food") )
@@ -90,17 +89,14 @@ namespace CookingPrototype.Controllers
 			return Orders.Find(x =>
 			{
 				if ( x.Foods.Count != foods.Count )
-				{
 					return false;
-				}
 
 				foreach ( var food in x.Foods )
 				{
 					if ( x.Foods.Count(f => f.Name == food.Name) != foods.Count(f => f == food.Name) )
-					{
 						return false;
-					}
 				}
+
 				return true;
 			});
 		}

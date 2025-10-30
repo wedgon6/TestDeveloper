@@ -7020,6 +7020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce617a2fba9ad9c4cbe0260c57ff0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tapBlock: {fileID: 2091358853}
+  _winWindow: {fileID: 1556102842}
+  _loseWindow: {fileID: 1872986065}
+  _startWindow: {fileID: 1140525590}
   TapBlock: {fileID: 2091358853}
   WinWindow: {fileID: 1556102842}
   LoseWindow: {fileID: 1872986065}
@@ -10202,7 +10206,7 @@ GameObject:
   - component: {fileID: 1140525589}
   - component: {fileID: 1140525590}
   m_Layer: 0
-  m_Name: WinWindow
+  m_Name: StartWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10233,13 +10237,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140525588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f641e70e85e7ac646aaac5cc9bd26d56, type: 3}
+  m_Script: {fileID: 11500000, guid: 57d865c88a2985c4ba1eeb85902b00d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoalBar: {fileID: 1290027267}
-  GoalText: {fileID: 1389816430}
-  OkButton: {fileID: 885345580}
-  CloseButton: {fileID: 199760411}
+  _goalBar: {fileID: 1290027267}
+  _goalText: {fileID: 1389816430}
+  _startGame: {fileID: 885345580}
 --- !u!1 &1149871481
 GameObject:
   m_ObjectHideFlags: 0
@@ -13015,7 +13018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee12155f0c374c4b84b6d438ad0cc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _customersTargetNumber: 10
+  _customersTargetNumber: 15
   _customerWaitTime: 18
   _customerSpawnTime: 3
   _customerPlaces:
@@ -13852,10 +13855,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f641e70e85e7ac646aaac5cc9bd26d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoalBar: {fileID: 844851117}
-  GoalText: {fileID: 997244883}
-  OkButton: {fileID: 1779075345}
-  CloseButton: {fileID: 1443175024}
+  _goalBar: {fileID: 844851117}
+  _goalText: {fileID: 997244883}
+  _okButton: {fileID: 1779075345}
+  _closeButton: {fileID: 1443175024}
 --- !u!1 &1565138409
 GameObject:
   m_ObjectHideFlags: 0
@@ -16198,11 +16201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb22eb22efb3864b8cf1e837cf4d8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoalBar: {fileID: 419297040}
-  GoalText: {fileID: 471724313}
-  ReplayButton: {fileID: 962593483}
-  ExitButton: {fileID: 1195304561}
-  CloseButton: {fileID: 1328174421}
+  _goalBar: {fileID: 419297040}
+  _goalText: {fileID: 471724313}
+  _replayButton: {fileID: 962593483}
+  _exitButton: {fileID: 1195304561}
+  _closeButton: {fileID: 1328174421}
 --- !u!4 &1872986066
 Transform:
   m_ObjectHideFlags: 0
@@ -16775,7 +16778,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.4
+  m_fontSize: 80
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16957,7 +16960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4ba7afa7a437145bf85707905d6fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Servers:
+  _servers:
   - {fileID: 508356678}
   - {fileID: 1087345512}
   - {fileID: 1053909145}

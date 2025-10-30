@@ -18,6 +18,9 @@ namespace CookingPrototype.Controllers
 		[SerializeField] private float _customerSpawnTime = 3f;
 		[SerializeField] private List<CustomerPlace> _customerPlaces = new();
 
+		private float _timer = 0f;
+		private Stack<List<Order>> _orderSets;
+
 		public int CustomersTargetNumber => _customersTargetNumber;
 		public float CustomerWaitTime => _customerWaitTime;
 		public float CustomerSpawnTime => _customerSpawnTime;
@@ -28,11 +31,7 @@ namespace CookingPrototype.Controllers
 
 		public event Action TotalCustomersGeneratedChanged;
 
-
-		float _timer = 0f;
-		Stack<List<Order>> _orderSets;
-
-		bool HasFreePlaces
+		private bool _hasFreePlaces
 		{
 			get { return CustomerPlaces.Any(x => x.IsFree); }
 		}
@@ -68,7 +67,7 @@ namespace CookingPrototype.Controllers
 
 		private void Update()
 		{
-			if ( !HasFreePlaces )
+			if ( !_hasFreePlaces )
 				return;
 
 			_timer += Time.deltaTime;
@@ -78,36 +77,6 @@ namespace CookingPrototype.Controllers
 
 			SpawnCustomer();
 			_timer = 0f;
-		}
-
-		void SpawnCustomer()
-		{
-			var freePlaces = CustomerPlaces.FindAll(x => x.IsFree);
-
-			if ( freePlaces.Count <= 0 )
-				return;
-
-			var place = freePlaces[Random.Range(0, freePlaces.Count)];
-			place.PlaceCustomer(GenerateCustomer());
-			TotalCustomersGenerated++;
-			TotalCustomersGeneratedChanged?.Invoke();
-		}
-
-		Customer GenerateCustomer()
-		{
-			var customerGo = Instantiate(Resources.Load<GameObject>(CUSTOMER_PREFABS_PATH));
-			var customer = customerGo.GetComponent<Customer>();
-
-			var orders = _orderSets.Pop();
-			customer.Init(orders);
-
-			return customer;
-		}
-
-		Order GenerateRandomOrder()
-		{
-			var oc = OrdersController.Instance;
-			return oc.Orders[Random.Range(0, oc.Orders.Count)];
 		}
 
 		public void Init()
@@ -153,7 +122,6 @@ namespace CookingPrototype.Controllers
 			GameplayController.Instance.CheckGameFinish();
 		}
 
-
 		/// <summary>
 		///  Пытаемся обслужить посетителя с заданным заказом и наименьшим оставшимся временем ожидания.
 		///  Если у посетителя это последний оставшийся заказ из списка, то отпускаем его.
@@ -178,6 +146,36 @@ namespace CookingPrototype.Controllers
 			}
 
 			return customer.ServeOrder(order);
+		}
+
+		private void SpawnCustomer()
+		{
+			var freePlaces = CustomerPlaces.FindAll(x => x.IsFree);
+
+			if ( freePlaces.Count <= 0 )
+				return;
+
+			var place = freePlaces[Random.Range(0, freePlaces.Count)];
+			place.PlaceCustomer(GenerateCustomer());
+			TotalCustomersGenerated++;
+			TotalCustomersGeneratedChanged?.Invoke();
+		}
+
+		private Customer GenerateCustomer()
+		{
+			var customerGo = Instantiate(Resources.Load<GameObject>(CUSTOMER_PREFABS_PATH));
+			var customer = customerGo.GetComponent<Customer>();
+
+			var orders = _orderSets.Pop();
+			customer.Init(orders);
+
+			return customer;
+		}
+
+		private Order GenerateRandomOrder()
+		{
+			var oc = OrdersController.Instance;
+			return oc.Orders[Random.Range(0, oc.Orders.Count)];
 		}
 	}
 }

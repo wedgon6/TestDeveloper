@@ -1,43 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
-
-using  CookingPrototype.Controllers;
+using CookingPrototype.Controllers;
 
 using TMPro;
+using CookingPrototype.MessageBrokerEvent;
+using UniRx;
 
-namespace CookingPrototype.UI {
-	public sealed class LoseWindow : MonoBehaviour {
-		public Image    GoalBar      = null;
-		public TMP_Text GoalText     = null;
-		public Button   ReplayButton = null;
-		public Button   ExitButton   = null;
-		public Button   CloseButton  = null;
+namespace CookingPrototype.UI
+{
+	public sealed class LoseWindow : GameWindow
+	{
+		[SerializeField] private Button _replayButton;
+		[SerializeField] private Button _exitButton;
+		[SerializeField] private Button _closeButton;
 
-		bool _isInit = false;
+		//public override void Show(int totalOrdersServed, int ordersTarget)
+		//{
+		//	base.Show(totalOrdersServed, ordersTarget);
+		//	//	_goalText.text = $"{totalOrdersServed}/{ordersTarget}";
+		//	//	_goalBar.fillAmount = Mathf.Clamp01((float)totalOrdersServed / ordersTarget);
+		//	//	gameObject.SetActive(true);
+		//}
 
-		void Init() {
-			var gc = GameplayController.Instance;
-
-			ReplayButton.onClick.AddListener(gc.Restart);
-			ExitButton  .onClick.AddListener(gc.CloseGame);
-			CloseButton .onClick.AddListener(gc.CloseGame);
+		protected override void Init()
+		{
+			_replayButton.onClick.AddListener(OnRestart);
+			_exitButton.onClick.AddListener(OnGameClose);
+			_closeButton.onClick.AddListener(OnGameClose);
 		}
 
-		public void Show() {
-			if ( !_isInit ) {
-				Init();
-			}
-
-			var gc = GameplayController.Instance;
-
-			GoalBar.fillAmount = Mathf.Clamp01((float) gc.TotalOrdersServed / gc.OrdersTarget);
-			GoalText.text = $"{gc.TotalOrdersServed}/{gc.OrdersTarget}";
-
-			gameObject.SetActive(true);
+		private void OnGameClose()
+		{
+			MessageBroker.Default.Publish(new M_GameClose());
 		}
 
-		public void Hide() {
-			gameObject.SetActive(false);
+		private void OnRestart()
+		{
+			MessageBroker.Default.Publish(new M_GameRestart());
 		}
+
 	}
 }

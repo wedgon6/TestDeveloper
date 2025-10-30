@@ -22,7 +22,7 @@ namespace CookingPrototype.Kitchen
 		public TimerSpriteSet Normal = null;
 		public TimerSpriteSet Overcook = null;
 
-		TimerSpriteSet CurSet
+		private TimerSpriteSet CurSet
 		{
 			set
 			{
@@ -43,7 +43,7 @@ namespace CookingPrototype.Kitchen
 			}
 		}
 
-		void Awake()
+		private void Awake()
 		{
 			if ( Place )
 			{
@@ -51,7 +51,7 @@ namespace CookingPrototype.Kitchen
 			}
 		}
 
-		void OnDestroy()
+		private void OnDestroy()
 		{
 			if ( Place )
 			{
@@ -77,7 +77,7 @@ namespace CookingPrototype.Kitchen
 			}
 		}
 
-		void OnFoodPlaceUpdated()
+		private void OnFoodPlaceUpdated()
 		{
 			if ( Place.IsCooking )
 			{
