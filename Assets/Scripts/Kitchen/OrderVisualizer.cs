@@ -7,12 +7,12 @@ namespace CookingPrototype.Kitchen
 	{
 		public List<FoodVisualizer> Visualizers = new List<FoodVisualizer>();
 
-		void Start()
+		private void Start()
 		{
 			Clear();
 		}
 
-		void Clear()
+		private void Clear()
 		{
 			Visualizers.ForEach(x => x.SetEnabled(false));
 		}
@@ -24,9 +24,7 @@ namespace CookingPrototype.Kitchen
 			foreach ( var vis in Visualizers )
 			{
 				if ( foods.Contains(vis.Name) )
-				{
 					vis.SetEnabled(true);
-				}
 			}
 		}
 	}

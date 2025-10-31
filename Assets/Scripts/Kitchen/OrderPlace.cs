@@ -1,10 +1,8 @@
-using UnityEngine;
-
+using CookingPrototype.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using CookingPrototype.Controllers;
+using UnityEngine;
 
 namespace CookingPrototype.Kitchen
 {

@@ -16,9 +16,6 @@ namespace CookingPrototype.Controllers
 		[SerializeField] private WinWindow _winWindow;
 		[SerializeField] private LoseWindow _loseWindow;
 		[SerializeField] private GameStartWindow _startWindow;
-		public GameObject TapBlock = null;
-		public WinWindow WinWindow = null;
-		public LoseWindow LoseWindow = null;
 
 		int _ordersTarget = 0;
 		private CompositeDisposable _disposables = new();
@@ -124,19 +121,19 @@ namespace CookingPrototype.Controllers
 		private void EndGame(bool win)
 		{
 			Time.timeScale = 0f;
-			TapBlock?.SetActive(true);
+			_tapBlock?.SetActive(true);
 
 			if ( win )
-				WinWindow.Show(TotalOrdersServed, OrdersTarget);
+				_winWindow.Show(TotalOrdersServed, OrdersTarget);
 			else
-				LoseWindow.Show(TotalOrdersServed, OrdersTarget);
+				_loseWindow.Show(TotalOrdersServed, OrdersTarget);
 		}
 
 		private void HideWindows()
 		{
-			TapBlock?.SetActive(false);
-			WinWindow?.gameObject.SetActive(false);
-			LoseWindow?.gameObject.SetActive(false);
+			_tapBlock?.SetActive(false);
+			_winWindow?.gameObject.SetActive(false);
+			_loseWindow?.gameObject.SetActive(false);
 		}
 	}
 }

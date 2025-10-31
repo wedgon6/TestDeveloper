@@ -1,27 +1,23 @@
+using CookingPrototype.Controllers;
+using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-using System.Collections.Generic;
-
-using CookingPrototype.Controllers;
-
-using JetBrains.Annotations;
 
 namespace CookingPrototype.Kitchen
 {
 	public sealed class Customer : MonoBehaviour
 	{
-		public Image CustomerImage = null;
-		public List<Sprite> CustomerSprites = null;
-		public Image TimerBar = null;
+		private const string ORDERS_PREFABS_PATH = "Prefabs/Orders/{0}";
 
-		public List<CustomerOrderPlace> OrderPlaces = null;
+		[SerializeField] private Image _customerImage;
+		[SerializeField] private List<Sprite> _customerSprites;
+		[SerializeField] private Image _timerBar;
+		[SerializeField] private List<CustomerOrderPlace> _orderPlace;
 
-		const string ORDERS_PREFABS_PATH = "Prefabs/Orders/{0}";
-
-		List<Order> _orders = null;
-		float _timer = 0f;
-		bool _isActive = false;
+		private List<Order> _orders = null;
+		private float _timer = 0f;
+		private bool _isActive = false;
 
 		public float WaitTime
 		{
@@ -33,14 +29,14 @@ namespace CookingPrototype.Kitchen
 		/// </summary>
 		public bool IsComplete { get { return _orders.Count == 0; } }
 
-		void Update()
+		private void Update()
 		{
 			if ( !_isActive )
 			{
 				return;
 			}
 			_timer += Time.deltaTime;
-			TimerBar.fillAmount = WaitTime / CustomersController.Instance.CustomerWaitTime;
+			_timerBar.fillAmount = WaitTime / CustomersController.Instance.CustomerWaitTime;
 
 			if ( WaitTime <= 0f )
 			{
@@ -48,30 +44,23 @@ namespace CookingPrototype.Kitchen
 			}
 		}
 
-		[ContextMenu("Set random sprite")]
-		void SetRandomSprite()
-		{
-			CustomerImage.sprite = CustomerSprites[Random.Range(0, CustomerSprites.Count)];
-			CustomerImage.SetNativeSize();
-		}
-
 		public void Init(List<Order> orders)
 		{
 			_orders = orders;
 
-			if ( _orders.Count > OrderPlaces.Count )
+			if ( _orders.Count > _orderPlace.Count )
 			{
 				Debug.LogError("There's too many orders for one customer");
 				return;
 			}
 
-			OrderPlaces.ForEach(x => x.Complete());
+			_orderPlace.ForEach(x => x.Complete());
 
 			var i = 0;
 			for ( ; i < _orders.Count; i++ )
 			{
 				var order = _orders[i];
-				var place = OrderPlaces[i];
+				var place = _orderPlace[i];
 				Instantiate(Resources.Load<GameObject>(string.Format(ORDERS_PREFABS_PATH, order.Name)), place.transform, false);
 				place.Init(order);
 			}
@@ -85,7 +74,7 @@ namespace CookingPrototype.Kitchen
 		[UsedImplicitly]
 		public bool ServeOrder(Order order)
 		{
-			var place = OrderPlaces.Find(x => x.CurOrder == order);
+			var place = _orderPlace.Find(x => x.CurrentOrder == order);
 
 			if ( !place )
 				return false;
@@ -99,6 +88,13 @@ namespace CookingPrototype.Kitchen
 				_timer = Mathf.Max(0f, _timer - 6f);
 
 			return true;
+		}
+
+		[ContextMenu("Set random sprite")]
+		private void SetRandomSprite()
+		{
+			_customerImage.sprite = _customerSprites[Random.Range(0, _customerSprites.Count)];
+			_customerImage.SetNativeSize();
 		}
 	}
 }

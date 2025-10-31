@@ -9,7 +9,6 @@ namespace CookingPrototype.Controllers
 {
 	public class CustomersController : MonoBehaviour
 	{
-
 		private const string CUSTOMER_PREFABS_PATH = "Prefabs/Customer";
 		public static CustomersController Instance { get; private set; }
 
@@ -20,7 +19,7 @@ namespace CookingPrototype.Controllers
 
 		private float _timer = 0f;
 		private Stack<List<Order>> _orderSets;
-
+		
 		public int CustomersTargetNumber => _customersTargetNumber;
 		public float CustomerWaitTime => _customerWaitTime;
 		public float CustomerSpawnTime => _customerSpawnTime;
@@ -55,9 +54,7 @@ namespace CookingPrototype.Controllers
 		private void OnDestroy()
 		{
 			if ( Instance == this )
-			{
 				Instance = null;
-			}
 		}
 
 		private void Start()
@@ -113,7 +110,7 @@ namespace CookingPrototype.Controllers
 		/// <param name="customer"></param>
 		public void FreeCustomer(Customer customer)
 		{
-			var place = CustomerPlaces.Find(x => x.CurCustomer == customer);
+			var place = CustomerPlaces.Find(x => x.CurrentCustomer == customer);
 
 			if ( place == null )
 				return;
@@ -135,11 +132,11 @@ namespace CookingPrototype.Controllers
 
 			foreach ( var place in _customerPlaces )
 			{
-				if ( place.CurCustomer != null )
+				if ( place.CurrentCustomer != null )
 				{
-					if ( place.CurCustomer.WaitTime < maxTime )
+					if ( place.CurrentCustomer.WaitTime < maxTime )
 					{
-						customer = place.CurCustomer;
+						customer = place.CurrentCustomer;
 						maxTime = customer.WaitTime;
 					}
 				}

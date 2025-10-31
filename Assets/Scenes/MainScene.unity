@@ -692,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -1904,50 +1906,6 @@ MonoBehaviour:
   - {fileID: 1160396470}
   - {fileID: 1268645991}
   - {fileID: 77122180}
---- !u!1 &159962914
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 159962916}
-  - component: {fileID: 159962915}
-  m_Layer: 0
-  m_Name: test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &159962915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159962914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b2e5d38375fdf41a776583201e7ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &159962916
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159962914}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.31553, y: -107.53567, z: 11.950592}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164411251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -2873,6 +2833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -2924,6 +2886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -3340,6 +3304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -3504,6 +3470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -3991,6 +3959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 0
@@ -5025,6 +4995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -6341,6 +6313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -6988,6 +6962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -7024,9 +7000,6 @@ MonoBehaviour:
   _winWindow: {fileID: 1556102842}
   _loseWindow: {fileID: 1872986065}
   _startWindow: {fileID: 1140525590}
-  TapBlock: {fileID: 2091358853}
-  WinWindow: {fileID: 1556102842}
-  LoseWindow: {fileID: 1872986065}
 --- !u!4 &869417864
 Transform:
   m_ObjectHideFlags: 0
@@ -7829,6 +7802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -8355,6 +8330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -9374,6 +9351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 0
@@ -9752,6 +9731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 0
@@ -11030,6 +11011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -11423,6 +11406,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268645989}
   m_CullTransparentMesh: 0
+--- !u!1 &1268892679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268892681}
+  - component: {fileID: 1268892680}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1268892680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268892679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143e92023ec0a4941b911691de2ebda6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1268892681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268892679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -87.39028, y: 109.268364, z: 12.22292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286948941
 GameObject:
   m_ObjectHideFlags: 0
@@ -11636,6 +11663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -12050,6 +12079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -12271,6 +12302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -12458,6 +12491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -12509,6 +12544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -13082,6 +13119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -13368,6 +13407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -13807,6 +13848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -13907,6 +13950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -14015,6 +14060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -14569,6 +14616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -15791,6 +15840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -16092,6 +16143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -16360,6 +16413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -17471,6 +17526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -17682,6 +17739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -18299,6 +18358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 1
   CookTime: 5
   OvercookTime: 7
@@ -18991,6 +19052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce48306f488ffb48a3c2474b5e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookTime: 5
+  _overcookTime: 7
   Cook: 0
   CookTime: 0
   OvercookTime: 0
@@ -19536,4 +19599,4 @@ SceneRoots:
   - {fileID: 1477878224}
   - {fileID: 869417864}
   - {fileID: 576471609}
-  - {fileID: 159962916}
+  - {fileID: 1268892681}

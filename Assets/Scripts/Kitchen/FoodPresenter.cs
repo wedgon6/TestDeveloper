@@ -1,6 +1,5 @@
-using UnityEngine;
-
 using System;
+using UnityEngine;
 
 namespace CookingPrototype.Kitchen
 {
@@ -56,18 +55,15 @@ namespace CookingPrototype.Kitchen
 		void Start()
 		{
 			Set?.Hide();
+
 			if ( Place )
-			{
 				Place.FoodPlaceUpdated += OnFoodPlaceUpdated;
-			}
 		}
 
 		void OnDestroy()
 		{
 			if ( Place )
-			{
 				Place.FoodPlaceUpdated -= OnFoodPlaceUpdated;
-			}
 		}
 
 		void OnFoodPlaceUpdated()
@@ -79,13 +75,9 @@ namespace CookingPrototype.Kitchen
 			else
 			{
 				if ( Place.CurFood.Name == FoodName )
-				{
-					Set?.ShowStatus(Place.CurFood.CurStatus);
-				}
+					Set?.ShowStatus(Place.CurFood.CurrentStatus);
 				else
-				{
 					Set?.Hide();
-				}
 			}
 		}
 	}

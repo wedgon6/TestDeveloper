@@ -4,26 +4,26 @@ namespace CookingPrototype.Kitchen
 {
 	public sealed class CustomerPlace : MonoBehaviour
 	{
-		public Customer CurCustomer { get; private set; } = null;
+		public Customer CurrentCustomer { get; private set; } = null;
 
-		public bool IsFree { get { return CurCustomer == null; } }
+		public bool IsFree { get { return CurrentCustomer == null; } }
 
 		public void PlaceCustomer(Customer customer)
 		{
-			CurCustomer = customer;
+			CurrentCustomer = customer;
 			customer.transform.SetParent(transform);
 			customer.transform.localPosition = Vector3.zero;
 		}
 
 		public void Free()
 		{
-			if ( !CurCustomer )
+			if ( !CurrentCustomer )
 			{
 				return;
 			}
 
-			var customer = CurCustomer;
-			CurCustomer = null;
+			var customer = CurrentCustomer;
+			CurrentCustomer = null;
 			Destroy(customer.gameObject);
 		}
 	}

@@ -82,7 +82,7 @@ namespace CookingPrototype.Kitchen
 			if ( Place.IsCooking )
 			{
 				gameObject.SetActive(true);
-				CurSet = Place.CurFood.CurStatus == Food.FoodStatus.Raw ? Normal : Overcook;
+				CurSet = Place.CurFood.CurrentStatus == Food.FoodStatus.Raw ? Normal : Overcook;
 			}
 			else
 			{

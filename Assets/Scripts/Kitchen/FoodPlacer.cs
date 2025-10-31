@@ -1,6 +1,6 @@
-using UnityEngine;
-using System.Collections.Generic;
 using JetBrains.Annotations;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace CookingPrototype.Kitchen
 {

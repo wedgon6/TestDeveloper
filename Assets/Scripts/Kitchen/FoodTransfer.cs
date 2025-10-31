@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-
-using UnityEngine;
-
 using JetBrains.Annotations;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace CookingPrototype.Kitchen
 {
@@ -25,11 +23,9 @@ namespace CookingPrototype.Kitchen
 			var food = _place.CurFood;
 
 			if ( food == null )
-			{
 				return;
-			}
 
-			if ( OnlyTransferCooked && (food.CurStatus != Food.FoodStatus.Cooked) )
+			if ( OnlyTransferCooked && (food.CurrentStatus != Food.FoodStatus.Cooked) )
 			{
 				_place.TryPlaceFood(food);
 				return;
@@ -38,9 +34,8 @@ namespace CookingPrototype.Kitchen
 			foreach ( var place in DestPlaces )
 			{
 				if ( !place.TryPlaceFood(food) )
-				{
 					continue;
-				}
+
 				_place.FreePlace();
 				return;
 			}

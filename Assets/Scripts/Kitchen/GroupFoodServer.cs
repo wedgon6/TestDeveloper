@@ -14,9 +14,7 @@ namespace CookingPrototype.Kitchen
 			foreach ( var server in _servers )
 			{
 				if ( server.TryServeFood() )
-				{
 					return;
-				}
 			}
 		}
 	}

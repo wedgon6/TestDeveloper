@@ -1,6 +1,6 @@
-using System.Collections;
 using CookingPrototype.MessageBrokerEvent;
 using JetBrains.Annotations;
+using System.Collections;
 using UniRx;
 using UnityEngine;
 
@@ -50,7 +50,7 @@ namespace CookingPrototype.Kitchen
 		{
 			if(_place.CurFood != null )
 			{
-				if ( _place.CurFood.CurStatus == Food.FoodStatus.Overcooked )
+				if ( _place.CurFood.CurrentStatus == Food.FoodStatus.Overcooked )
 				{
 					_place.FreePlace();
 					MessageBroker.Default.Publish(new M_ThrowTrash());
